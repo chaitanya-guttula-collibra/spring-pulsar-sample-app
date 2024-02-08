@@ -1,0 +1,2 @@
+POST localhost:7070/send/example
+Content-Type: application/json

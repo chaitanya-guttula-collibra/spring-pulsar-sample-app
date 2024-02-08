@@ -1,0 +1,12 @@
+POST localhost:7070/send/exampleMessage
+Content-Type: application/json
+
+####
+
+POST localhost:7070/send/exampleMessageWithSchema
+Content-Type: application/json
+
+###
+
+POST localhost:7070/send/nonTransactional
+Content-Type: application/json

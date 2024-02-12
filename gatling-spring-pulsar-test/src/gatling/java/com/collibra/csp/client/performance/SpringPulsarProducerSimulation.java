@@ -15,14 +15,16 @@ import static io.gatling.javaapi.http.HttpDsl.status;
 public class SpringPulsarProducerSimulation extends Simulation {
 
     String baseUrl = "http://localhost:7070";//System.getProperty("baseUrl");
-    int repeatCount = 100;//Integer.parseInt(System.getProperty("repeatCount"));
-    int userCount = 1000;//Integer.parseInt(System.getProperty("userCount"));
-    int rampUpDuration = 10;//Integer.parseInt(System.getProperty("rampUpDuration"));
+    int repeatCount = Integer.parseInt(System.getProperty("repeatCount"));
+    int userCount = Integer.parseInt(System.getProperty("userCount"));
+    int rampUpDuration = Integer.parseInt(System.getProperty("rampUpDuration"));
+
+    int messagesCount = Integer.parseInt(System.getProperty("messagesCount"));
 
     ChainBuilder ingestSchema = repeat(repeatCount)
             .on(
                     http("Start")
-                            .post("/send/example")
+                            .post("/send/exampleMessageWithSchema")
                             .check(status().is(200)));
 
     ScenarioBuilder flows = scenario("Simple Spring Pulsar Producer flow").exec(ingestSchema);

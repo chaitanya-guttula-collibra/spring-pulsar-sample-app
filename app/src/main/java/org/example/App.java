@@ -25,13 +25,19 @@ public class App {
 
     @Value("${org.example.topic1}")
     public String topic1;
+
+    @Value("${spring.pulsar.client.service-url}")
+    public String serviceUrl;
+
+    @Value("${spring.pulsar.client.authentication.param.token}")
+    public String token;
     @Bean
     @Qualifier("producer")
     public Producer<ExampleMessage> getProducer() throws PulsarClientException {
         try(PulsarClient client = PulsarClient.builder()
-                .serviceUrl("pulsar+ssl://pulsar-dev.pulsar-nprod-gcp.collibra-ops.com:6651")
+                .serviceUrl(serviceUrl)
                 .authentication(
-                        AuthenticationFactory.token("auth-token"))
+                        AuthenticationFactory.token(token))
                 .build()) {
             return client.newProducer(Schema.JSON(ExampleMessage.class))
                     .topic(topic1)

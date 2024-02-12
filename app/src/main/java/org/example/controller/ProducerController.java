@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.pulsar.client.api.MessageId;
 import org.apache.pulsar.client.api.Producer;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Schema;
@@ -9,10 +10,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.pulsar.core.PulsarTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @Controller
@@ -39,15 +44,30 @@ public class ProducerController {
     public String topic1;
 
     @PostMapping("/exampleMessage")
-    public ResponseEntity<String> sendMessageJson() {
-        try {
-            String messageId = pulsarTemplate.newMessage("This is a test message with UUID : "
-                    + UUID.randomUUID()).withTopic(topic).sendAsync().get().toString();
-            log.info("Sent Message ID: {}", messageId);
-            return ResponseEntity.ok(messageId);
-        } catch (PulsarClientException | ExecutionException | InterruptedException e) {
-            log.error("Error sending message", e);
-            return ResponseEntity.internalServerError().body(e.getMessage());
+    public ResponseEntity<String> sendMessageJson(@RequestParam Integer count) {
+        if(count == null || count == 1) {
+            try {
+                String messageId = pulsarTemplate.newMessage("This is a test message with UUID : "
+                        + UUID.randomUUID()).withTopic(topic).sendAsync().get().toString();
+                log.info("Sent Message ID: {}", messageId);
+                return ResponseEntity.ok(messageId);
+            } catch (PulsarClientException | ExecutionException | InterruptedException e) {
+                log.error("Error sending message", e);
+                return ResponseEntity.internalServerError().body(e.getMessage());
+            }
+        } else {
+            int success =0;
+            for(int i =0; i < (count); i++) {
+                try {
+                    String messageId = pulsarTemplate.newMessage("This is a test message with UUID : "
+                            + UUID.randomUUID()).withTopic(topic).sendAsync().get().toString();
+                    log.info("Sent Message ID: {}", messageId);
+                    success++;
+                } catch (PulsarClientException | ExecutionException | InterruptedException e) {
+                    log.error("Error sending message", e);
+                }
+            }
+            return ResponseEntity.ok("Sent messages: "+success);
         }
     }
 

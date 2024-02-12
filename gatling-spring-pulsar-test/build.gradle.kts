@@ -16,11 +16,6 @@ repositories {
     mavenCentral()
 }
 
-//dependencies {
-//    gatling("org.springframework.boot:spring-boot-starter-pulsar")
-//    gatling("org.springframework.boot:spring-boot-starter-test")
-//}
-
 tasks.withType<Test> {
     useJUnitPlatform()
 }
@@ -28,4 +23,8 @@ tasks.withType<Test> {
 
 gatling {
     logHttp = io.gatling.gradle.LogHttp.FAILURES
+    systemProperties.set("repeatCount", project.properties.getOrDefault("repeatCount", "100"))
+    systemProperties.set("userCount", project.properties.getOrDefault("userCount", "1000"))
+    systemProperties.set("rampUpDuration", project.properties.getOrDefault("rampUpDuration", "30"))
+    systemProperties.set("messagesCount", project.properties.getOrDefault("messagesCount", "1"))
 }

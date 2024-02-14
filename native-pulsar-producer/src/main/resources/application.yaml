@@ -1,2 +1,13 @@
 server:
   port: 7070
+
+org:
+  example:
+    topic: "test-topic"
+    pulsar:
+      client:
+        service-url: "pulsar://localhost:6650"
+        authentication:
+          plugin-class-name: org.apache.pulsar.client.impl.auth.AuthenticationToken
+          param:
+            token: "token"

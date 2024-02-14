@@ -1,15 +1,15 @@
 spring:
   pulsar:
     client:
-      service-url: "pulsar+ssl://pulsar-dev.pulsar-nprod-gcp.collibra-ops.com:6651"
+      service-url: "pulsar://localhost:6650"
       authentication:
         plugin-class-name: org.apache.pulsar.client.impl.auth.AuthenticationToken
         param:
-          token: "MzVlN2NjMDYtMGIwMi00Zjk5LWVhNjItZTYwZjU2ZmRmN2VjOmRmNDJmMDhkLTNmNTgtMDZkYy03MmU0LTg0ZTNiOWE3Y2ExYg=="
+          token: "token"
 
 org:
   example:
-    topic: "persistent://playground/test/test.topic6.v1"
-    topic1: "persistent://playground/test/test.topic4.v1"
+    topic-no-schema: "test-topic-no-schema"
+    topic-schema: "test-topic-schema"
 server:
   port: 7070

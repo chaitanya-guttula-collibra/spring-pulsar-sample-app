@@ -10,7 +10,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/app-with-service" />
             <option value="$PROJECT_DIR$/gatling-spring-pulsar-test" />
             <option value="$PROJECT_DIR$/native-pulsar-producer" />
           </set>

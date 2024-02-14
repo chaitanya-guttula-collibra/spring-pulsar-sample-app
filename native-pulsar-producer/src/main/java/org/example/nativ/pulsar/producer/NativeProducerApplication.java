@@ -7,6 +7,7 @@ import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.Schema;
 import org.example.nativ.pulsar.producer.model.ExampleMessage;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -20,19 +21,29 @@ public class NativeProducerApplication {
         SpringApplication.run(NativeProducerApplication.class, args);
     }
 
-    public String topic = "persistent://playground/test/test.topic4.v1";
+    @Value("${org.example.topic}")
+    public String topic;
+
+    @Value("${org.example.pulsar.client.authentication.param.token}")
+    public String token;
+
+    @Value("${org.example.pulsar.client.service-url}")
+    public String serviceUrl;
 
     @Bean
     public Producer<ExampleMessage> producer() throws PulsarClientException {
-        try(PulsarClient client = PulsarClient.builder()
-                .serviceUrl("pulsar+ssl://pulsar-dev.pulsar-nprod-gcp.collibra-ops.com:6651")
-                .authentication(
-                        AuthenticationFactory.token(
-                                "auth-token"))
-                .build()) {
+        try {
+            PulsarClient client = PulsarClient.builder()
+                    .serviceUrl(serviceUrl)
+                    .authentication(
+                            AuthenticationFactory.token(token))
+                    .build();
             return client.newProducer(Schema.JSON(ExampleMessage.class))
                     .topic(topic)
                     .create();
+        } catch (PulsarClientException e) {
+            e.printStackTrace();
+            throw e;
         }
     }
 }

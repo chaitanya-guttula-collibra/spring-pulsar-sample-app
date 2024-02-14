@@ -12,22 +12,20 @@ import static io.gatling.javaapi.core.CoreDsl.scenario;
 import static io.gatling.javaapi.http.HttpDsl.http;
 import static io.gatling.javaapi.http.HttpDsl.status;
 @Slf4j
-public class SpringPulsarProducerSimulation extends Simulation {
+public class PulsarProducerSimulation extends Simulation {
 
-    String baseUrl = "http://localhost:7070";//System.getProperty("baseUrl");
+    String baseUrl = System.getProperty("baseUrl");
     int repeatCount = Integer.parseInt(System.getProperty("repeatCount"));
     int userCount = Integer.parseInt(System.getProperty("userCount"));
     int rampUpDuration = Integer.parseInt(System.getProperty("rampUpDuration"));
 
-    int messagesCount = Integer.parseInt(System.getProperty("messagesCount"));
-
-    ChainBuilder ingestSchema = repeat(repeatCount)
+    ChainBuilder chainBuilder = repeat(repeatCount)
             .on(
                     http("Start")
                             .post("/send/exampleMessageWithSchema")
                             .check(status().is(200)));
 
-    ScenarioBuilder flows = scenario("Simple Spring Pulsar Producer flow").exec(ingestSchema);
+    ScenarioBuilder flows = scenario("Simple Pulsar Producer flow").exec(chainBuilder);
 
     HttpProtocolBuilder httpProtocol = http.baseUrl(baseUrl);
 

@@ -10,12 +10,10 @@
         <module name="spring-pulsar-sample-app.gatling-spring-pulsar-test.test" />
         <module name="spring-pulsar-sample-app.native-pulsar-producer.main" />
         <module name="spring-pulsar-sample-app.app.main" />
-        <module name="spring-pulsar-sample-app.app-with-service.main" />
         <module name="spring-pulsar-sample-app.gatling-spring-pulsar-test.main" />
         <module name="spring-pulsar-sample-app.native-pulsar-producer.test" />
         <module name="spring-pulsar-sample-app.app.test" />
         <module name="spring-pulsar-sample-app.gatling-spring-pulsar-test.gatling" />
-        <module name="spring-pulsar-sample-app.app-with-service.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />

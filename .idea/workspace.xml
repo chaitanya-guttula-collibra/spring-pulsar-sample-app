@@ -5,15 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9255a17c-163e-4e9f-a920-8ba4c7de2e24" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/.idea/modules/native-pulsar-producer/spring-pulsar-sample-app.native-pulsar-producer.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/example/model/ExampleMessageComponents.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/native-pulsar-producer/src/main/java/org/example/nativ/pulsar/producer/model/ExampleMessageComponents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app-with-service/spring-pulsar-sample-app.app-with-service.main.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-with-service/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-with-service/src/main/java/org/example/SpringbootApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-with-service/src/main/java/org/example/config/ProducerConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-with-service/src/main/java/org/example/controller/ProducerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-with-service/src/main/java/org/example/model/ExampleMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-with-service/src/main/java/org/example/service/ProducerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-with-service/src/main/java/org/example/service/impl/ProducerServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-with-service/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-with-service/src/test/resources/send.http" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/controller/ProducerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/controller/ProducerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/model/ExampleMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/model/ExampleMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/test/resources/send.http" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/send.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gatling-spring-pulsar-test/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/gatling-spring-pulsar-test/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatling-spring-pulsar-test/src/gatling/java/com/collibra/csp/client/performance/SpringPulsarProducerSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/gatling-spring-pulsar-test/src/gatling/java/com/collibra/csp/client/performance/SpringPulsarProducerSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatling-spring-pulsar-test/src/gatling/resources/gatling.conf" beforeDir="false" afterPath="$PROJECT_DIR$/gatling-spring-pulsar-test/src/gatling/resources/gatling.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gatling-spring-pulsar-test/src/gatling/java/com/collibra/csp/client/performance/SpringPulsarProducerSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/gatling-spring-pulsar-test/src/gatling/java/com/collibra/csp/client/performance/PulsarProducerSimulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native-pulsar-producer/src/main/java/org/example/nativ/pulsar/producer/NativeProducerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/native-pulsar-producer/src/main/java/org/example/nativ/pulsar/producer/NativeProducerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native-pulsar-producer/src/main/java/org/example/nativ/pulsar/producer/model/ExampleMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/native-pulsar-producer/src/main/java/org/example/nativ/pulsar/producer/model/ExampleMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/native-pulsar-producer/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/native-pulsar-producer/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,52 +131,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Gradle.Build spring-pulsar-sample-app.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Load Gradle Dependencies.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.spring-pulsar-sample-app:native-pulsar-producer [bootRun].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.spring-pulsar-sample-app:native-pulsar-producer [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.spring-pulsar-sample-app:native-pulsar-producer [clean].executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.send | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.send | #2.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.send | #3.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.App.executor&quot;: &quot;Run&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/chaitanya.guttula/IdeaProjects/spring-pulsar-sample-app&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2425968&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.Build spring-pulsar-sample-app.executor": "Run",
+    "Gradle.Load Gradle Dependencies.executor": "Run",
+    "Gradle.spring-pulsar-sample-app:native-pulsar-producer [bootRun].executor": "Run",
+    "Gradle.spring-pulsar-sample-app:native-pulsar-producer [build].executor": "Run",
+    "Gradle.spring-pulsar-sample-app:native-pulsar-producer [clean].executor": "Run",
+    "HTTP Request.send | #1.executor": "Run",
+    "HTTP Request.send | #2.executor": "Run",
+    "HTTP Request.send | #3.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.App.executor": "Run",
+    "go.import.settings.migrated": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/chaitanya.guttula/NewPojects/spring-pulsar-sample-app/app/src/main/java/org/example/model",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2425968",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/org/example/model" />
+      <recent name="$PROJECT_DIR$/gradle/wrapper" />
+      <recent name="$PROJECT_DIR$/native-pulsar-producer/src/main/java/org/example/nativ/pulsar/producer/model" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/app/src/test/resources" />
-      <recent name="$PROJECT_DIR$/app/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/java" />
@@ -180,7 +200,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.send | #1">
+  <component name="RunManager" selected="HTTP Request.send | #2">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="spring-pulsar-sample-app" />
       <working_directory value="$PROJECT_DIR$" />
@@ -269,7 +289,7 @@
     <configuration name="send | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/app/src/test/resources/send.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="send | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/app-with-service/src/test/resources/send.http" index="3" requestIdentifier="#3" runType="Run single request">
+    <configuration name="send | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/app/src/test/resources/send.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -297,19 +317,19 @@
       <item itemvalue="Gradle.spring-pulsar-sample-app:native-pulsar-producer [bootRun]" />
       <item itemvalue="Gradle.spring-pulsar-sample-app:native-pulsar-producer [build]" />
       <item itemvalue="Gradle.spring-pulsar-sample-app:native-pulsar-producer [clean]" />
+      <item itemvalue="HTTP Request.send | #2" />
       <item itemvalue="HTTP Request.send | #1" />
-      <item itemvalue="HTTP Request.send | #3" />
       <item itemvalue="Spring Boot.NativeProducerApplication" />
       <item itemvalue="Spring Boot.SpringbootApp" />
       <item itemvalue="Spring Boot.App" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.send | #2" />
         <item itemvalue="HTTP Request.send | #1" />
         <item itemvalue="Gradle.spring-pulsar-sample-app:native-pulsar-producer [bootRun]" />
         <item itemvalue="Gradle.spring-pulsar-sample-app:native-pulsar-producer [build]" />
         <item itemvalue="Gradle.spring-pulsar-sample-app:native-pulsar-producer [clean]" />
-        <item itemvalue="HTTP Request.send | #3" />
       </list>
     </recent_temporary>
   </component>
@@ -332,6 +352,7 @@
       <workItem from="1707169176527" duration="44617000" />
       <workItem from="1707425096329" duration="205000" />
       <workItem from="1707425315243" duration="12600000" />
+      <workItem from="1707926111902" duration="5368000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />

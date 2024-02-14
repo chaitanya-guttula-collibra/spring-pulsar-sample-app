@@ -26,5 +26,5 @@ gatling {
     systemProperties.set("repeatCount", project.properties.getOrDefault("repeatCount", "100"))
     systemProperties.set("userCount", project.properties.getOrDefault("userCount", "1000"))
     systemProperties.set("rampUpDuration", project.properties.getOrDefault("rampUpDuration", "30"))
-    systemProperties.set("messagesCount", project.properties.getOrDefault("messagesCount", "1"))
+    systemProperties.set("baseUrl", project.properties.getOrDefault("baseUrl", "http://localhost:7070"))
 }

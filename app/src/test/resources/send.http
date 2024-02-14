@@ -1,2 +1,7 @@
-POST localhost:7070/send/exampleMessage?count=1
+POST localhost:7070/send/exampleMessage
+Content-Type: application/json
+
+####
+
+POST localhost:7070/send/exampleMessageWithSchema
 Content-Type: application/json

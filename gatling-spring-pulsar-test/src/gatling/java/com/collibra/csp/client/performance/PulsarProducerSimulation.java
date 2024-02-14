@@ -15,15 +15,15 @@ import static io.gatling.javaapi.http.HttpDsl.status;
 public class PulsarProducerSimulation extends Simulation {
 
     String baseUrl = System.getProperty("baseUrl");
+    String endpoint = System.getProperty("endpoint");
     int repeatCount = Integer.parseInt(System.getProperty("repeatCount"));
     int userCount = Integer.parseInt(System.getProperty("userCount"));
     int rampUpDuration = Integer.parseInt(System.getProperty("rampUpDuration"));
 
     ChainBuilder chainBuilder = repeat(repeatCount)
-            .on(
-                    http("Start")
-                            .post("/send/exampleMessageWithSchema")
-                            .check(status().is(200)));
+            .on(http("Start")
+                    .post(endpoint)
+                    .check(status().is(200)));
 
     ScenarioBuilder flows = scenario("Simple Pulsar Producer flow").exec(chainBuilder);
 

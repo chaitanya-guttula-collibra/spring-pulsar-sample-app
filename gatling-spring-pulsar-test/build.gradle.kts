@@ -27,4 +27,5 @@ gatling {
     systemProperties.set("userCount", project.properties.getOrDefault("userCount", "1000"))
     systemProperties.set("rampUpDuration", project.properties.getOrDefault("rampUpDuration", "30"))
     systemProperties.set("baseUrl", project.properties.getOrDefault("baseUrl", "http://localhost:7070"))
+    systemProperties.set("endpoint", project.properties.getOrDefault("endpoint", "/send/example"))
 }

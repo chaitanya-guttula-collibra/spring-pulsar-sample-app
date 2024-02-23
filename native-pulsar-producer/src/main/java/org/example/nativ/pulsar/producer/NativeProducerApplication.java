@@ -31,14 +31,23 @@ public class NativeProducerApplication {
     public String serviceUrl;
 
     @Bean
-    public Producer<ExampleMessage> producer() throws PulsarClientException {
+    public PulsarClient pulsarClient() throws PulsarClientException {
         try {
-            PulsarClient client = PulsarClient.builder()
+            return PulsarClient.builder()
                     .serviceUrl(serviceUrl)
                     .authentication(
                             AuthenticationFactory.token(token))
                     .build();
-            return client.newProducer(Schema.JSON(ExampleMessage.class))
+        } catch (PulsarClientException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @Bean
+    public Producer<ExampleMessage> producer() throws PulsarClientException {
+        try {
+            return pulsarClient().newProducer(Schema.JSON(ExampleMessage.class))
                     .topic(topic)
                     .create();
         } catch (PulsarClientException e) {
